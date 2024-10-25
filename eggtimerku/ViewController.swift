@@ -9,13 +9,16 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var progressTimerView: UIProgressView!
+    
     let eggTimer = [
         "Soft": 300,
         "Medium": 420,
         "Hard": 720,
     ]
     
-    var count = 0
+    var remainingTime: Int = 0
+    var selectedTime: Int = 0
     var timer: Timer? = nil
 
     override func viewDidLoad() {
@@ -24,15 +27,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onHardenessClicked(_ sender: UIButton) {
-        startTimer(selectedCount: eggTimer[sender.currentTitle!]!)
+        startTimer(selectedTime: eggTimer[sender.currentTitle!]!)
     }
     
-    private func startTimer(selectedCount: Int) {
+    private func startTimer(selectedTime: Int) {
         if let timer = self.timer {
             timer.invalidate()
             self.timer = nil
         }
-        count = selectedCount
+        remainingTime = selectedTime
+        self.selectedTime = selectedTime
         self.timer = Timer.scheduledTimer(
             timeInterval: 1,
             target: self,
@@ -43,9 +47,13 @@ class ViewController: UIViewController {
     }
     
     @objc func update() {
-        if (count > 0) {
-            print("count: \(count)")
-            count -= 1
+        if (remainingTime > 0) {
+            let progress = 1 - (Float(remainingTime) / Float(selectedTime))
+            progressTimerView.progress = progress
+            remainingTime -= 1
+            print("progress: \(progress) | remainingTime: \(remainingTime) | selectedTime: \(selectedTime)")
+        } else {
+            progressTimerView.progress = 1
         }
     }
 }

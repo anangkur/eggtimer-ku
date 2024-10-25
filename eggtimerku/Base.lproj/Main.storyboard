@@ -125,6 +125,25 @@
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MNx-6T-EQX" userLabel="timerView">
                                         <rect key="frame" x="0.0" y="506" width="393" height="253"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Svo-7c-xs3">
+                                                <rect key="frame" x="16" y="8" width="361" height="237"/>
+                                                <subviews>
+                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yk5-F9-L2R" userLabel="progressTimerView">
+                                                        <rect key="frame" x="0.0" y="116.66666666666663" width="361" height="4"/>
+                                                        <color key="backgroundColor" systemColor="lightTextColor"/>
+                                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                                    </progressView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="Yk5-F9-L2R" firstAttribute="centerY" secondItem="Svo-7c-xs3" secondAttribute="centerY" id="9N9-lB-WPH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Yk5-F9-L2R" secondAttribute="trailing" id="XNw-rd-TfK"/>
+                                                    <constraint firstItem="Yk5-F9-L2R" firstAttribute="leading" secondItem="Svo-7c-xs3" secondAttribute="leading" id="vwu-rw-iD4"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -138,32 +157,27 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="x8s-4O-NJI" secondAttribute="bottom" id="udt-rB-S76"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="progressTimerView" destination="Yk5-F9-L2R" id="PvS-4K-6Ou"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-143" y="4"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="sHU-5o-RlO">
-            <objects>
-                <viewController id="OYY-hI-uVG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kzs-GA-eaf">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xa5-R5-EnB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-545" y="-418"/>
         </scene>
     </scenes>
     <resources>
         <image name="hard_egg" width="287.66665649414062" height="366.33334350585938"/>
         <image name="medium_egg" width="288" height="363.33334350585938"/>
         <image name="soft_egg" width="287" height="365.33334350585938"/>
+        <systemColor name="lightTextColor">
+            <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
